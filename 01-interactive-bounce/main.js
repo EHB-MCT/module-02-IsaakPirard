@@ -6,7 +6,8 @@ let y = 300;
 
 //2. Add variables (size, speed, colorVal) for controlling the sketch
 let size = 50;
-let speed = 10;
+let speedX = 10;
+let speedY = 10;
 let colorVal = "red";
 
 function setup() {
@@ -19,15 +20,17 @@ function draw() {
 	background(220);
 
 	// 3.1 Animate position
-	x += speed;
-	y += speed;
+	x += speedX;
+	y += speedY;
 
 	// 3.2 Bounce logic: check the edges
 
 	if (x <= size / 2 || x >= 600 - size / 2) {
-		speed *= -1;
-	} else if (y <= size / 2 || y >= 600 - size / 2) {
-		speed *= -1;
+		speedX *= -1;
+		speedX += random(-0.5, 0.5);
+	} else if (y <= size / 2 || y > 600 - size / 2) {
+		speedY *= -1;
+		speedY += random(-0.5, 0.5);
 	}
 
 	// 3.3 Draw
@@ -54,7 +57,8 @@ sizeInput.addEventListener("input", function () {
 });
 
 speedInput.addEventListener("input", function () {
-	speed = Number(speedInput.value);
+	speedX = Number(speedInput.value);
+	speedY = Number(speedInput.value);
 });
 
 colorInput.addEventListener("input", function () {
