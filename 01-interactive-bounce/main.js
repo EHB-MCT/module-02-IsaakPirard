@@ -6,7 +6,7 @@ let y = 300;
 
 //2. Add variables (size, speed, colorVal) for controlling the sketch
 let size = 50;
-let speedX = 10;
+let speedX = 11;
 let speedY = 10;
 let colorVal = "red";
 
@@ -27,10 +27,8 @@ function draw() {
 
 	if (x <= size / 2 || x >= 600 - size / 2) {
 		speedX *= -1;
-		speedX += random(-0.5, 0.5);
 	} else if (y <= size / 2 || y > 600 - size / 2) {
 		speedY *= -1;
-		speedY += random(-0.5, 0.5);
 	}
 
 	// 3.3 Draw
